@@ -6,6 +6,10 @@ class HomePage extends StatelessWidget {
       fontSize:
           25); /* esto lo marca como inmutable, caracteristica de statelesswidget */
 
+  // int conteo = 0; /* tampoco se pueder al ser inmutable */
+
+  final conteo = 10;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +28,9 @@ class HomePage extends StatelessWidget {
             'Número de taps:',
             style: estiloTexto,
           ),
-          Text('0', style: estiloTexto),
+          Text('$conteo',
+              style:
+                  estiloTexto), /* interpolacion de strings, tambien podria ser conteo.toString() */
         ],
       )
           /* no se puede poner otro child abajo, solo 1 */
@@ -37,8 +43,8 @@ class HomePage extends StatelessWidget {
           print('Hola mundo');
         },
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation
-          .centerFloat, /* esto es para posicionar el boton abajo en la mitad de la pantalla */
+      // floatingActionButtonLocation: FloatingActionButtonLocation
+      //     .centerFloat, /* esto es para posicionar el boton abajo en la mitad de la pantalla */
     );
   }
 }
