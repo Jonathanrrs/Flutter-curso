@@ -41,6 +41,8 @@ class HomePage extends StatelessWidget {
         onPressed: () {
           /* una funcion recibe, es el boton para presionar */
           print('Hola mundo');
+          /* no se puede así, es por eso que debemos utilizar ya un statefullwidget, para poder controlar el estado */
+          // conteo = conteo + 1;
         },
       ),
       // floatingActionButtonLocation: FloatingActionButtonLocation
