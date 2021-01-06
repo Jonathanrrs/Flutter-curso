@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_vscode/src/pages/home_page.dart';
+
 /* este un widget */
 class MyApp extends StatelessWidget {
   /* necesita un metodo build */
@@ -9,7 +11,7 @@ class MyApp extends StatelessWidget {
     /* debe retornar un widget a fuerza */
     return MaterialApp(
       home: Center(
-        child: Text('Hola mundo!'),
+        child: HomePage(),
       ),
     );
   }
