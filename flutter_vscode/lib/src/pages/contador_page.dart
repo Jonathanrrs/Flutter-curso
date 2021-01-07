@@ -56,16 +56,36 @@ class _ContadorPageState extends State<ContadorPage> {
       mainAxisAlignment: MainAxisAlignment.end, /* estos botones se ubican al final a la derecha inferior */
       children: <Widget> [
         SizedBox(width: 30.0),
-        FloatingActionButton(onPressed: null, child: Icon(Icons.exposure_zero)),
-        /* expanded estira el widget que tenga en su interior */
+        FloatingActionButton(onPressed: _reset, child: Icon(Icons.exposure_zero)),
+        /* expanded estira el widget que tenga en su interior, es obligatorio el child */
         Expanded(child: SizedBox()), /* es un double, es el ancho del widget */
-        FloatingActionButton(onPressed: null, child: Icon(Icons.remove)),
+        FloatingActionButton(onPressed: _sustraer, child: Icon(Icons.remove)),
         SizedBox(width: 5.0),
-        FloatingActionButton(onPressed: null, child: Icon(Icons.add))
+        /* sin parentesis _agregar, porque se necesita que se ejecute cuando se toque el boton y no cuando se crea */
+        FloatingActionButton(onPressed: _agregar, child: Icon(Icons.add))
       ]
     );
     
     
     // FloatingActionButton(onPressed: null, child: Icon(Icons.add_alarm));
+  }
+
+  void _agregar() {
+  /* el settate solo existe en los statefulwidget */
+    setState(() {
+    _conteo++;
+    });
+  }
+  /* tarea */
+  void _reset() {
+    setState(() {
+      _conteo = 0;
+    });
+  }
+
+  void _sustraer() {
+    setState(() {
+      _conteo = _conteo - 1;
+    });
   }
 }
