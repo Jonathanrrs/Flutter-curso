@@ -45,21 +45,27 @@ class _ContadorPageState extends State<ContadorPage> {
       )
           /* no se puede poner otro child abajo, solo 1 */
           ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        /* para que aparezca un icono, este puede ser cualquier cosa también */
-        onPressed: () {
-          /* una funcion recibe, es el boton para presionar */
-          // print('Hola mundo');
-          /* cuando esta variable cambia que se redibuje el statewidget */
-
-          setState(() {
-            _conteo = _conteo + 1;
-          });
-        },
-      ),
+      floatingActionButton: _crearBotones()
       // floatingActionButtonLocation: FloatingActionButtonLocation
       //     .centerFloat, /* esto es para posicionar el boton abajo en la mitad de la pantalla */
     );
+  }
+
+  Widget _crearBotones() { /* esto regresa un widget */
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end, /* estos botones se ubican al final a la derecha inferior */
+      children: <Widget> [
+        SizedBox(width: 30.0),
+        FloatingActionButton(onPressed: null, child: Icon(Icons.exposure_zero)),
+        /* expanded estira el widget que tenga en su interior */
+        Expanded(child: SizedBox()), /* es un double, es el ancho del widget */
+        FloatingActionButton(onPressed: null, child: Icon(Icons.remove)),
+        SizedBox(width: 5.0),
+        FloatingActionButton(onPressed: null, child: Icon(Icons.add))
+      ]
+    );
+    
+    
+    // FloatingActionButton(onPressed: null, child: Icon(Icons.add_alarm));
   }
 }
