@@ -12,7 +12,8 @@ class HomePageTemp extends StatelessWidget { /* stateless snipet */
         title: Text('Componentes Temp'),
       ),
       body: ListView( /* para crear listview */
-       children: _crearItems()
+      //  children: _crearItems()
+        children: __crearItemsCorta()
       ), 
     );
   }
@@ -34,8 +35,26 @@ class HomePageTemp extends StatelessWidget { /* stateless snipet */
     return lista; /* retornamos la lista con los números */
   }
 
-  // List<Widget> __crearItemsCorta() {
+  List<Widget> __crearItemsCorta() {
+    return opciones.map((item)  {
+      return Column( /* control + . para envolverlo en una columna y agregar el divider */
+        children: <Widget>[
+          ListTile(
+            title: Text(item+ '!'),
+            subtitle: Text('Cualquier cosa'),
+            leading: Icon(Icons.account_balance_wallet), /* este icono se pone en la parte izquierda al principio */
+            trailing: Icon(Icons.keyboard_arrow_right), /* este icono se pone al final de la parte derecha */
+            onTap: () {}, /* es un método */
+          ),
+          Divider()
+        ],
+      );
 
-  // }
+    }).toList(); /* esto es para convertirlo a una lista porque antes widgets era un iterable*/
+   
+  }
+
+
+  
   
 }
